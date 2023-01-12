@@ -1,0 +1,82 @@
+[
+    {
+        "title": "jeans negro",
+        "description": "pantalon de denim negro",
+        "price": 8000,
+        "image": "saoidnow",
+        "stock": 40,
+        "id": 1
+    },
+    {
+        "title": "jeans indigo",
+        "description": "pantalon denim indigo",
+        "price": 65000,
+        "image": "cadsv",
+        "stock": 30,
+        "id": 2
+    },
+    {
+        "title": "jeans blanco",
+        "description": "pantalon denim blanco",
+        "price": 6000,
+        "image": "asfrewge",
+        "stock": 40,
+        "id": 3
+    },
+    {
+        "title": "jeans gris",
+        "description": "pantalon denim gris",
+        "price": 6000,
+        "image": "asfrewge",
+        "stock": 40,
+        "id": 4
+    },
+    {
+        "title": "pullover rojo",
+        "description": "poleron de algodon",
+        "price": 6000,
+        "image": "asfrewge",
+        "stock": 40,
+        "id": 5
+    },
+    {
+        "title": "pullover negro",
+        "description": "poleron de algodon",
+        "price": 6000,
+        "image": "asfrewge",
+        "stock": 40,
+        "id": 6
+    },
+    {
+        "title": "pullover verde",
+        "description": "poleron de algodon",
+        "price": 6000,
+        "image": "asfrewge",
+        "stock": 40,
+        "id": 7
+    },
+    {
+        "title": "polera blanca",
+        "description": "polera de algodon",
+        "price": 6000,
+        "image": "asfrewge",
+        "stock": 40,
+        "id": 8
+    },
+    {
+        "title": "polera roja",
+        "description": "polera de algodon",
+        "price": 6000,
+        "image": "asfrewge",
+        "stock": 40,
+        "id": 9
+    },
+    {
+        "title": "polera azul",
+        "description": "polera de algodon",
+        "price": 6000,
+        "image": "asfrewge",
+        "stock": 40,
+        "id": 10
+    }
+]
