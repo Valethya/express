@@ -1,28 +1,14 @@
 import express from "express";
-import ProductManager from "./ProductManager.js";
-
-const productos = new ProductManager();
+import routes from "./routes/index.js";
+import port from "./config/index.js";
 
 const app = express();
 
-let products = productos.getProducts();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.get("/bienvenida", (req, res) => {
-  res.send(`<h1 style="color:blue;">!Welcome to the course my friends!</h1>`);
-});
+routes(app);
 
-app.get("/products/:pid", async (req, res) => {
-  const { pid } = req.params;
-  const prod = await productos.getProductsById(pid);
-  res.send(prod);
-});
-
-app.get("/products", async (req, res) => {
-  let product = await products;
-  const { limit } = req.query;
-  limit ? res.send(await product.slice(0, limit)) : res.send(await product);
-});
-
-app.listen(8080, () => {
-  console.log("running from express");
+app.listen(port, () => {
+  console.log("server running at port ", port);
 });

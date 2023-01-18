@@ -21,21 +21,15 @@ export default class ProductManager {
     }
   };
 
-  addProduct = async (title, description, price, image, stock) => {
+  addProduct = async (newProducts) => {
     const products = await this.getProducts();
-    const product = {
-      title: title,
-      description: description,
-      price: price,
-      image: image,
-      stock: stock,
-    };
-    let lastId = products.length != 0 ? products[products.length - 1].id : 1;
-    product.id = ++lastId;
 
-    products.push(product);
+    let lastId = products.length != 0 ? products[products.length - 1].id : 1;
+    newProducts.id = ++lastId;
+
+    products.push(newProducts);
     await fs.promises.writeFile(this.path, JSON.stringify(products));
-    return product;
+    return newProducts;
   };
 
   getProductsById = async (id) => {
@@ -44,13 +38,13 @@ export default class ProductManager {
     return product ? product : (product = { error: "el producto no existe" });
   };
 
-  updateProduct = async (id, propiedad, value) => {
+  updateProduct = async (idProd, infoProduct) => {
     let products = await this.getProducts();
-    let product = products.find((item) => item.id === id);
-    product[propiedad] = value;
+    let product = products.findIndex((item) => item.id === Number(idProd));
 
-    let index = products.indexOf(product);
-    products[index] = product;
+    let id = products[product].id;
+    products[product] = { ...infoProduct, id };
+
     await fs.promises.writeFile(this.path, JSON.stringify(products));
   };
 
