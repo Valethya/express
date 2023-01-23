@@ -1,5 +1,6 @@
 import Router from "express";
 import ProductManager from "../ProductManager.js";
+import { uploader } from "../utils.js";
 
 const productos = new ProductManager();
 
@@ -10,7 +11,12 @@ const router = Router();
 router.get("/", async (req, res) => {
   let product = await products;
   const { limit } = req.query;
-  limit ? res.send(await product.slice(0, limit)) : res.send(await product);
+  product = limit ? await product.slice(0, limit) : await product;
+  // limit ? res.send(await product.slice(0, limit)) : res.send(await product);
+  res.render("products.handlebars", {
+    product: await product,
+    title: "perros",
+  });
 });
 
 router.get("/:pid", async (req, res) => {
@@ -19,20 +25,19 @@ router.get("/:pid", async (req, res) => {
   res.send(prod);
 });
 
-router.post("/", (req, res) => {
-  const { title, description, price, thumbnail, stock, status, category } =
-    req.body;
+router.post("/", uploader.single("file"), (req, res) => {
+  const { title, description, price, stock, status, category, file } = req.body;
 
   let newProducts = {
     title,
     description,
     price,
-    thumbnail,
     stock,
     status,
     category,
+    file,
   };
-
+  newProducts.thumbnail = req.file.path;
   productos.addProduct(newProducts);
 
   res.status(201).json({ message: "user create" });
