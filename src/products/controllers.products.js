@@ -26,7 +26,7 @@ router.get("/:pid", async (req, res) => {
   res.send(prod);
 });
 
-router.post("/", uploader.single("file"), (req, res) => {
+router.post("/", uploader.single("file"), async (req, res) => {
   const { title, description, price, stock, status, category, file } = req.body;
 
   let newProducts = {

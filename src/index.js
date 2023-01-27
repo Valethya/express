@@ -21,19 +21,4 @@ const httpServer = app.listen(port, () => {
   console.log("server running at port ", port);
 });
 
-const io = new Server(httpServer);
-
-io.on("connection", (socket) => {
-  console.log("nuevo cliente conectado");
-  let product = {
-    title: "pullover negro",
-    description: "poleron de algodon",
-    price: 6000,
-    thumbnail: "asfrewge",
-    stock: 40,
-    id: 6,
-    status: true,
-    category: "algo",
-  };
-  socket.emit("mensaje", product);
-});
+export const io = new Server(httpServer);

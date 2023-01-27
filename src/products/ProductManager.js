@@ -29,7 +29,7 @@ export default class ProductManager {
 
     products.push(newProducts);
     await fs.promises.writeFile(this.path, JSON.stringify(products));
-    return newProducts;
+    return products;
   };
 
   getProductsById = async (id) => {
@@ -54,5 +54,6 @@ export default class ProductManager {
     let newProducts = products.filter((item) => item.id != id);
     console.log(newProducts, "esto esta filtrado");
     await fs.promises.writeFile(this.path, JSON.stringify(newProducts));
+    return await this.getProducts();
   };
 }
