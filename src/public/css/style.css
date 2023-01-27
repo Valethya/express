@@ -1,3 +1,24 @@
 body{
-    background: gray;
+    background: rgb(238, 238, 238);
+}
+.container-product{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+}
+.container-product-card{
+    width: calc(100%/4);
+    padding: 0.5em;
+}
+.product-card{
+    background-color: brown;
+}
+img{
+    width: 100%;
+    height: 30%;
+}
+.detalle{
+    display: flex;
+    flex-direction: column;
 }
