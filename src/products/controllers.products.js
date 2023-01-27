@@ -1,5 +1,5 @@
 import Router from "express";
-import ProductManager from "../ProductManager.js";
+import ProductManager from "./ProductManager.js";
 import { uploader } from "../utils.js";
 
 const productos = new ProductManager();
@@ -16,6 +16,7 @@ router.get("/", async (req, res) => {
   res.render("products.handlebars", {
     product: await product,
     title: "perros",
+    style: "/style.css",
   });
 });
 
